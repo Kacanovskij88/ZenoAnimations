@@ -6,18 +6,17 @@
 <title>Flexibele abonnementsmodellen</title>
 <style>
   :root {
-    /* Sampled directly from the reference */
-    --stage:        #ededed;       /* page/stage bg */
-    --panel:        #ffffff;       /* white cards & inactive pills */
-    --blue:         #a1d0e2;       /* primary accent: pill active, marketing card, icon tiles */
-    --blue-strong:  #8ec3da;       /* hover deepening */
-    --amber:        #ffdfae;       /* bundle tiles */
+    --stage:        #ededed;
+    --panel:        #ffffff;
+    --blue:         #a1d0e2;
+    --blue-strong:  #8ec3da;
+    --amber:        #ffdfae;
     --amber-strong: #f5cf8e;
-    --chip-bg:      #dee3e9;       /* section-label pill bg */
-    --chip-ink:     #798092;       /* section-label text */
-    --ink:          #1a2733;       /* primary text */
-    --ink-soft:     #6b7682;       /* secondary text */
-    --dark-tile:    #14263c;       /* dark icon tile inside marketing card */
+    --chip-bg:      #dee3e9;
+    --chip-ink:     #798092;
+    --ink:          #1a2733;
+    --ink-soft:     #6b7682;
+    --dark-tile:    #14263c;
     --hairline:     rgba(20,38,60,.10);
 
     --shadow-sm: 0 1px 2px rgba(15,23,42,.05), 0 2px 6px rgba(15,23,42,.05);
@@ -27,14 +26,33 @@
     --r-md: 14px;
     --r-lg: 22px;
     --r-pill: 999px;
-
     --t: 280ms cubic-bezier(.2,.7,.2,1);
   }
 
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
 
-  /* button UA reset */
+  /* CHANGED: html and body now fill the iframe fully */
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; /* CHANGED: was 32px */
+    overflow: hidden;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
   button {
     appearance: none;
     -webkit-appearance: none;
@@ -48,27 +66,17 @@
     cursor: pointer;
   }
 
-  body {
-    background: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: var(--ink);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    padding: 32px;
-  }
-
+  /* CHANGED: stage now fills full width/height of iframe, no fixed aspect-ratio */
   .stage {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    aspect-ratio: 1500 / 1000;
+    width: 100%;
+    height: 100%;
     background: var(--stage);
     border-radius: 18px;
     overflow: hidden;
     isolation: isolate;
   }
 
-  /* large white arc behind the abonnementstype card, like the reference */
   .stage::before {
     content: "";
     position: absolute;
@@ -88,11 +96,10 @@
     grid-template-columns: 1fr 1.55fr;
     grid-template-rows: auto auto;
     gap: 22px 30px;
-    padding: 40px 44px 44px;
+    padding: 28px 32px; /* CHANGED: slightly reduced padding */
     height: 100%;
   }
 
-  /* Section labels */
   .label {
     display: inline-flex;
     align-items: center;
@@ -110,29 +117,19 @@
 
   .col { display: flex; flex-direction: column; }
 
-  /* ---------- Generic interactive card ---------- */
   .card {
     position: relative;
-    transition:
-      transform var(--t),
-      box-shadow var(--t),
-      background-color var(--t);
+    transition: transform var(--t), box-shadow var(--t), background-color var(--t);
     will-change: transform;
     transform-origin: center;
   }
-  .card:focus-visible {
-    outline: 2px solid #2563eb;
-    outline-offset: 4px;
-  }
+  .card:focus-visible { outline: 2px solid #2563eb; outline-offset: 4px; }
   .card:hover {
     transform: translateY(-4px) scale(1.045);
     box-shadow: var(--shadow-lg);
     z-index: 5;
   }
-  .card:active {
-    transform: translateY(-1px) scale(1.015);
-    transition-duration: 80ms;
-  }
+  .card:active { transform: translateY(-1px) scale(1.015); transition-duration: 80ms; }
   .card::after {
     content: "";
     position: absolute;
@@ -142,11 +139,8 @@
     pointer-events: none;
     transition: box-shadow var(--t);
   }
-  .card:hover::after {
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
-  }
+  .card:hover::after { box-shadow: 0 0 0 3px rgba(37,99,235,0.10); }
 
-  /* ---------- Looptijd column ---------- */
   .looptijd { gap: 12px; }
   .pill {
     display: flex;
@@ -162,14 +156,8 @@
     color: var(--ink);
   }
   .pill.is-active { background: var(--blue); }
-  .pill .ico {
-    width: 22px; height: 22px;
-    display: grid; place-items: center;
-    color: var(--ink);
-    flex: none;
-  }
+  .pill .ico { width: 22px; height: 22px; display: grid; place-items: center; color: var(--ink); flex: none; }
 
-  /* ---------- Marketing card ---------- */
   .marketing {
     background: var(--blue);
     border-radius: var(--r-lg);
@@ -178,10 +166,7 @@
     width: fit-content;
     margin-top: 10px;
   }
-  .marketing-list {
-    display: flex;
-    flex-direction: column;
-  }
+  .marketing-list { display: flex; flex-direction: column; }
   .mrow {
     display: flex;
     align-items: center;
@@ -195,9 +180,7 @@
     min-width: 220px;
   }
   .mrow + .mrow { border-top: 1px solid var(--hairline); }
-  .mrow:hover {
-    background: rgba(255,255,255,.45);
-  }
+  .mrow:hover { background: rgba(255,255,255,.45); }
   .mrow .ico {
     width: 32px; height: 32px;
     background: var(--dark-tile);
@@ -207,17 +190,13 @@
     flex: none;
   }
 
-  /* ---------- Abonnementstype card ---------- */
   .abo {
     background: var(--panel);
     border-radius: var(--r-lg);
     padding: 18px 24px;
     box-shadow: var(--shadow-md);
   }
-  .abo-list {
-    display: flex;
-    flex-direction: column;
-  }
+  .abo-list { display: flex; flex-direction: column; }
   .arow {
     display: flex;
     align-items: center;
@@ -236,37 +215,13 @@
     flex: none;
     transition: background-color var(--t), transform var(--t);
   }
-  .arow:hover {
-    background: #f7fafc;
-    transform: translateX(2px);
-  }
-  .arow:hover .ico {
-    background: var(--blue-strong);
-    transform: scale(1.06);
-  }
-  .arow h3 {
-    margin: 0 0 2px 0;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-  .arow p {
-    margin: 0;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
+  .arow:hover { background: #f7fafc; transform: translateX(2px); }
+  .arow:hover .ico { background: var(--blue-strong); transform: scale(1.06); }
+  .arow h3 { margin: 0 0 2px 0; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+  .arow p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
 
-  /* ---------- Bundelen ---------- */
-  .bundelen {
-    grid-column: 2 / 3;
-    align-self: end;
-  }
-  .bundle-row {
-    display: flex;
-    gap: 14px;
-    align-items: stretch;
-  }
+  .bundelen { grid-column: 2 / 3; align-self: end; }
+  .bundle-row { display: flex; gap: 14px; align-items: stretch; }
   .bundle {
     background: var(--panel);
     border-radius: var(--r-md);
@@ -278,15 +233,8 @@
     flex-direction: column;
     gap: 4px;
   }
-  .bundle .top {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 16px; font-weight: 700; color: var(--ink);
-  }
-  .bundle .sub {
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    font-weight: 500;
-  }
+  .bundle .top { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--ink); }
+  .bundle .sub { font-size: 12.5px; color: var(--ink-soft); font-weight: 500; }
   .ico-amber {
     width: 28px; height: 28px;
     background: var(--amber);
@@ -311,8 +259,7 @@
   }
 
   @media (max-width: 720px) {
-    body { padding: 12px; }
-    .grid { grid-template-columns: 1fr; padding: 22px; gap: 18px; }
+    .grid { grid-template-columns: 1fr; padding: 16px; gap: 14px; }
     .bundelen { grid-column: 1; }
     .bundle-row { flex-direction: column; }
   }
@@ -323,118 +270,83 @@
   <main class="stage" aria-label="Flexibele abonnementsmodellen voor print, digitaal en hybride">
     <div class="grid">
 
-      <!-- LOOPTIJD -->
       <section class="col looptijd" aria-labelledby="lbl-looptijd">
         <span class="label" id="lbl-looptijd">Looptijd</span>
-
         <button class="card pill" type="button">
           <span class="ico" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </span>
           Vaste termijn
         </button>
-
         <button class="card pill is-active" type="button">
           <span class="ico" aria-hidden="true">
-            <!-- two-arrow circular sync -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.5 5.7L4 16"/><path d="M4 20v-4h4"/></svg>
           </span>
           Auto-verlenging
         </button>
-
         <button class="card pill" type="button">
           <span class="ico" aria-hidden="true">
-            <!-- dashed circular arrow -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.5 2.4"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-5h5" stroke-dasharray="0"/></svg>
           </span>
           Verlengverzoek
         </button>
       </section>
 
-      <!-- ABONNEMENTSTYPE -->
       <section class="col" aria-labelledby="lbl-abo" style="align-items: flex-end;">
         <span class="label" id="lbl-abo" style="align-self: flex-end;">Abonnementstype</span>
-
         <div class="card abo" role="group" aria-label="Abonnementstypen" style="width: 100%;">
           <div class="abo-list">
-
             <button class="arow" type="button">
               <span class="ico" aria-hidden="true">
-                <!-- printer -->
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="3" y="9" width="18" height="9" rx="2"/><rect x="7" y="14" width="10" height="6" rx="1.2"/><circle cx="17" cy="12.5" r=".9" fill="currentColor" stroke="none"/></svg>
               </span>
-              <div>
-                <h3>Print abonnement</h3>
-                <p>Toegang tot alle print content</p>
-              </div>
+              <div><h3>Print abonnement</h3><p>Toegang tot alle print content</p></div>
             </button>
-
             <button class="arow" type="button">
               <span class="ico" aria-hidden="true">
-                <!-- laptop -->
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="10" rx="1.5"/><path d="M2 19h20"/></svg>
               </span>
-              <div>
-                <h3>Digitaal abonnement</h3>
-                <p>Toegang tot alle digitale content</p>
-              </div>
+              <div><h3>Digitaal abonnement</h3><p>Toegang tot alle digitale content</p></div>
             </button>
-
             <button class="arow" type="button">
               <span class="ico" aria-hidden="true">
-                <!-- laptop with diagonal slash -->
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="10" rx="1.5"/><path d="M2 19h20"/><path d="M4 18 20 6"/></svg>
               </span>
-              <div>
-                <h3>Hybride abonnement</h3>
-                <p>Toegang tot alle print en digitale content</p>
-              </div>
+              <div><h3>Hybride abonnement</h3><p>Toegang tot alle print en digitale content</p></div>
             </button>
-
           </div>
         </div>
       </section>
 
-      <!-- MARKETING -->
       <section class="col" aria-labelledby="lbl-mkt">
         <span class="label" id="lbl-mkt">Marketing</span>
-
         <div class="card marketing" role="group" aria-label="Marketing">
           <div class="marketing-list">
-
             <button class="mrow" type="button">
               <span class="ico" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
               </span>
               Proefperiodes
             </button>
-
             <button class="mrow" type="button">
               <span class="ico" aria-hidden="true">
-                <!-- percent -->
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.4"/><circle cx="17" cy="17" r="2.4"/><path d="M19 5 5 19"/></svg>
               </span>
               Kortingen
             </button>
-
             <button class="mrow" type="button">
               <span class="ico" aria-hidden="true">
-                <!-- crown -->
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/><path d="M5 19h14"/></svg>
               </span>
               Premiums
             </button>
-
           </div>
         </div>
       </section>
 
-      <!-- BUNDELEN -->
       <section class="col bundelen" aria-labelledby="lbl-bnd">
         <span class="label" id="lbl-bnd" style="align-self:center;">Bundelen</span>
-
         <div class="bundle-row">
-
           <button class="card bundle" type="button">
             <div class="top">
               <span class="ico-amber" aria-hidden="true">
@@ -444,7 +356,6 @@
             </div>
             <div class="sub">10% korting op bundels</div>
           </button>
-
           <button class="card bundle" type="button">
             <div class="top">
               <span class="ico-amber" aria-hidden="true">
@@ -459,7 +370,6 @@
             </div>
             <div class="sub">Bundel print en digitaal</div>
           </button>
-
         </div>
       </section>
 
@@ -468,5 +378,3 @@
 
 </body>
 </html>
-Subscription Features.html
-Displaying Subscription Features.html.
