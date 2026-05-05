@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inzichten in inkoop en voorraad</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-vw { grid-column: 2; align-items: center; align-self: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Inzichten in inkoop en voorraad">
+    <div class="grid">
+
+      <section class="col col-vw" aria-labelledby="lbl-vw">
+        <span class="label" id="lbl-vw">Voorraadwaardering</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- arrow-in-box: oldest out -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M14 12H8"/><path d="M11 9l-3 3 3 3"/></svg>
+              </span>
+              <div>
+                <h3>FIFO</h3>
+                <p>Oudste voorraad eerst verkocht</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- arrow-in-box: newest out -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 12h6"/><path d="M13 9l3 3-3 3"/></svg>
+              </span>
+              <div>
+                <h3>LIFO</h3>
+                <p>Nieuwste voorraad eerst verkocht</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- scale -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="M5 9h14l-2 6a4 4 0 0 1-10 0z"/><circle cx="12" cy="4" r="1.5" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>Automatische afschrijving</h3>
+                <p>Gemiddelde kostprijs per artikel</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
