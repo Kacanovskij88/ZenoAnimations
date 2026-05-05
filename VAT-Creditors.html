@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BTW en crediteuren</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-btw  { grid-column: 1; align-items: flex-start; gap: 14px; }
+  .col-pay  { grid-column: 2; align-items: flex-end; align-self: center; }
+
+  /* stacked stand-alone white pill cards (no group container) */
+  .btw-card {
+    background: var(--panel);
+    border-radius: var(--r-md);
+    padding: 14px 22px 14px 16px;
+    box-shadow: var(--shadow-sm);
+    width: fit-content;
+    min-width: 240px;
+  }
+  .btw-card .top {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 18px; font-weight: 700; color: var(--ink);
+  }
+  .btw-card .sub {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  /* second card sits offset right per reference */
+  .btw-card.offset { margin-left: 30px; }
+  .btw-card.offset2 { margin-left: 0; }
+
+  .check-tile {
+    width: 44px; height: 44px;
+    background: var(--blue);
+    color: var(--ink);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    flex: none;
+    transition: background-color var(--t), transform var(--t);
+  }
+  .wrow:hover .check-tile { background: var(--blue-strong); transform: scale(1.06); }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="BTW en crediteuren">
+    <div class="grid">
+
+      <!-- BTW (3 stand-alone cards) -->
+      <section class="col col-btw" aria-labelledby="lbl-btw">
+        <span class="label" id="lbl-btw" style="margin-bottom: 4px;">BTW</span>
+
+        <button class="card btw-card" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.4"/><circle cx="17" cy="17" r="2.4"/><path d="M19 5 5 19"/></svg>
+            </span>
+            NL BTW
+          </div>
+          <div class="sub">Nederlandse BTW verwerking</div>
+        </button>
+
+        <button class="card btw-card offset" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.4"/><circle cx="17" cy="17" r="2.4"/><path d="M19 5 5 19"/></svg>
+            </span>
+            EU BTW
+          </div>
+          <div class="sub">Europese BTW verwerking</div>
+        </button>
+
+        <button class="card btw-card offset2" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.4"/><circle cx="17" cy="17" r="2.4"/><path d="M19 5 5 19"/></svg>
+            </span>
+            Internationale BTW
+          </div>
+          <div class="sub">Internationale BTW verwerking</div>
+        </button>
+      </section>
+
+      <!-- BETAALINTEGRATIES -->
+      <section class="col col-pay" aria-labelledby="lbl-pay">
+        <span class="label" id="lbl-pay" style="align-self:flex-end;">Betaalintegraties</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="check-tile" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 10"/></svg>
+              </span>
+              <div>
+                <h3>MultiSafepay</h3>
+                <p>Betalingen worden geïntegreerd door MultiSafepay</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="check-tile" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 10"/></svg>
+              </span>
+              <div>
+                <h3>Mollie</h3>
+                <p>Betalingen worden geïntegreerd door Mollie</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="check-tile" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 10"/></svg>
+              </span>
+              <div>
+                <h3>Buckaroo</h3>
+                <p>Betalingen worden geïntegreerd door Buckaroo</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
