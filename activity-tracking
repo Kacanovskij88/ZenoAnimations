@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactie volgen en taakbeheer</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-act  { grid-column: 1; align-items: flex-start; align-self: center; }
+  .col-plan { grid-column: 2; align-items: flex-end; align-self: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Interactie volgen en taakbeheer">
+    <div class="grid">
+
+      <!-- ACTIVITEITEN BIJHOUDEN (blue group) -->
+      <section class="col col-act" aria-labelledby="lbl-act">
+        <span class="label" id="lbl-act">Activiteiten bijhouden</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- phone -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              </span>
+              Gesprekken
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </span>
+              E-mails
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- speech bubbles -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-3l-3 3v-3H5a2 2 0 0 1-2-2z"/><path d="M9 10h6a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2l-2 2v-2"/></svg>
+              </span>
+              Vergaderingen
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- user with check -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/></svg>
+              </span>
+              Bezoeken
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITEITENPLANNING -->
+      <section class="col col-plan" aria-labelledby="lbl-plan">
+        <span class="label" id="lbl-plan" style="align-self:center;">Activiteitenplanning</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- lightbulb -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+              </span>
+              <div>
+                <h3>Kansen</h3>
+                <p>Opvolging en acties gekoppeld aan saleskansen</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- bell -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+              </span>
+              <div>
+                <h3>Herinneringen</h3>
+                <p>Automatische reminders voor belangrijke acties</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- task list -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+              </span>
+              <div>
+                <h3>To Do's</h3>
+                <p>Takenlijsten per gebruiker of team</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
