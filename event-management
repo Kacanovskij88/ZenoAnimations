@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Organiseren en factureren van een evenement</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-prijs { grid-column: 1; align-items: flex-start; align-self: center; gap: 10px; }
+  .col-reg   { grid-column: 2; align-items: flex-end; align-self: center; }
+
+  .stand-card {
+    background: var(--panel);
+    border-radius: var(--r-md);
+    padding: 14px 22px 14px 16px;
+    box-shadow: var(--shadow-sm);
+    width: fit-content;
+    min-width: 280px;
+  }
+  .stand-card .top {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 18px; font-weight: 700; color: var(--ink);
+  }
+  .stand-card .sub {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .stand-card.offset { margin-left: 30px; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Organiseren en factureren van een evenement">
+    <div class="grid">
+
+      <!-- PRIJSMODELLEN -->
+      <section class="col col-prijs" aria-labelledby="lbl-prijs">
+        <span class="label" id="lbl-prijs">Prijsmodellen</span>
+        <button class="card stand-card" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11V5a2 2 0 0 1 2-2h6l10 10a2 2 0 0 1 0 2.8l-6.2 6.2a2 2 0 0 1-2.8 0L3 13z"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/></svg>
+            </span>
+            Standaard
+          </div>
+          <div class="sub">Vaste prijs per evenement of deelname</div>
+        </button>
+        <button class="card stand-card offset" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            Vroegboekkorting
+          </div>
+          <div class="sub">Automatische korting bij vroege inschrijving</div>
+        </button>
+        <button class="card stand-card" type="button">
+          <div class="top">
+            <span class="ico-amber" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c.8-3 3-5 6-5s5.2 2 6 5"/><path d="M14 17c.6-1.6 2-3 3.5-3s2.9 1.2 3.5 3"/></svg>
+            </span>
+            Groepsprijzen
+          </div>
+          <div class="sub">Aangepaste tarieven voor groepsinschrijvingen</div>
+        </button>
+      </section>
+
+      <!-- REGISTRATIE -->
+      <section class="col col-reg" aria-labelledby="lbl-reg">
+        <span class="label" id="lbl-reg" style="align-self:flex-end;">Registratie</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.5"/><path d="M3 20c1-3.5 4-5 7-5"/><path d="M17 14v6M14 17h6"/></svg>
+              </span>
+              <div>
+                <h3>Directe registratie</h3>
+                <p>Inschrijvingen direct verwerkt in Zeno</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="13" height="10" rx="1.5"/><rect x="14" y="9" width="8" height="11" rx="1.5"/><path d="M2 18h13"/></svg>
+              </span>
+              <div>
+                <h3>Externe tools</h3>
+                <p>Koppelingen met externe registratieplatforms</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8 5 12l4 4M15 8l4 4-4 4"/></svg>
+              </span>
+              <div>
+                <h3>API</h3>
+                <p>Registratie via API-integraties</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
