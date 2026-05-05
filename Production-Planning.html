@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Planning en productiebeheer</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 0.85fr 1.3fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-fase { grid-column: 1; align-items: flex-start; align-self: center; }
+  .col-med  { grid-column: 2; align-items: flex-end; align-self: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Planning en productiebeheer">
+    <div class="grid">
+
+      <!-- FASE -->
+      <section class="col col-fase" aria-labelledby="lbl-fase">
+        <span class="label" id="lbl-fase">Fase</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3v4M16 3v4"/></svg>
+              </span>
+              Gepland
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+              </span>
+              In productie
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 13l4-5 4 5M12 8v9"/></svg>
+              </span>
+              Gepubliceerd
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 13h4"/></svg>
+              </span>
+              Gearchiveerd
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDEWERKERS -->
+      <section class="col col-med" aria-labelledby="lbl-med">
+        <span class="label" id="lbl-med" style="align-self:flex-end;">Medewerkers</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg>
+              </span>
+              <div>
+                <h3>Auteurs</h3>
+                <p>Verantwoordelijk voor contentcreatie</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <div>
+                <h3>Redacteuren</h3>
+                <p>Bewaken kwaliteit en inhoud</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h8M7 3v2M5 9c1 3 3 5 6 6"/><path d="M9 9c-1 3-3 5-6 6"/><path d="M13 21l5-11 5 11M15 17h6"/></svg>
+              </span>
+              <div>
+                <h3>Vertalers</h3>
+                <p>Zorgen voor meertalige publicaties</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-12 12H2v-6z"/><path d="M14 4l2-2a2 2 0 0 1 3 3l-2 2"/></svg>
+              </span>
+              <div>
+                <h3>Illustratoren</h3>
+                <p>Verzorgen visuele content en beeldmateriaal</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
