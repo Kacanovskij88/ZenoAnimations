@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Integraties en operationele inzichten</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+  .col-int { align-items: center; max-width: 460px; width: 100%; }
+  .stack-cards { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+  .stack-card {
+    background: var(--panel);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-md);
+    padding: 14px 22px;
+    text-align: center;
+    width: 100%;
+  }
+  .stack-card h3 { font-size: 18px; margin: 0; color: var(--ink); }
+  .stack-card p { font-size: 14px; color: var(--ink-soft); margin: 4px 0 0; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Integraties en operationele inzichten">
+    <div class="grid">
+
+      <section class="col col-int" aria-labelledby="lbl-int">
+        <span class="label" id="lbl-int">Integraties</span>
+        <div class="stack-cards" role="group">
+          <button class="card stack-card" type="button">
+            <h3>Aanmelder.nl</h3>
+            <p>Import van deelnemersgegevens vanuit Aanmelder.nl</p>
+          </button>
+          <button class="card stack-card" type="button">
+            <h3>Coachview</h3>
+            <p>Synchronisatie van deelnemers en inschrijvingen</p>
+          </button>
+          <button class="card stack-card" type="button">
+            <h3>Financiële systemen</h3>
+            <p>Koppeling met boekhouding en financiële data</p>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
