@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verstoringen en snelle reactie</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid { grid-template-columns: 1fr 1.2fr; align-items: center; }
+  .col-mut { grid-column: 1; align-items: flex-start; align-self: center; }
+  .col-toe { grid-column: 2; align-items: flex-end; align-self: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Verstoringen en snelle reactie">
+    <div class="grid">
+      <section class="col col-mut" aria-labelledby="lbl-mut">
+        <span class="label" id="lbl-mut">Dagelijkse mutaties</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></span>Nieuwe start</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 2.5 5.8L4 20"/><path d="M4 14v-4h4"/></svg></span>Herstart</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 11l7 3 3 7z"/><path d="M21 3 11 14"/></svg></span>Verhuizing</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></span>Stop</button>
+          </div>
+        </div>
+      </section>
+      <section class="col col-toe" aria-labelledby="lbl-toe">
+        <span class="label" id="lbl-toe" style="align-self:flex-end;">Toewijzing</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 1 1 4 0v8"/><path d="M9 11l-2 1a2 2 0 0 0-1 2v2c0 3 2 5 5 5h2a5 5 0 0 0 5-5v-3a2 2 0 1 0-4 0v-1a2 2 0 1 0-4 0"/></svg></span><div><h3>Handmatige wijzigingen</h3><p>toegang tot alle print content</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/></svg></span><div><h3>Automatische toewijzing</h3><p>toegang tot alle digitale content</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="8" height="6" rx="1"/><rect x="13" y="6" width="8" height="6" rx="1"/><rect x="8" y="14" width="8" height="6" rx="1"/></svg></span><div><h3>Bulkwijzigingen</h3><p>toegang tot alle print en digitale content</p></div></button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
