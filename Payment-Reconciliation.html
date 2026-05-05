@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verwerking en afstemming van betalingen</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: auto auto;
+    gap: 14px 22px;
+    padding: 32px 36px;
+  }
+  .col-mat { grid-column: 1; grid-row: 1; align-items: flex-start; align-self: start; }
+  .col-bet { grid-column: 2; grid-row: 1 / span 2; align-items: flex-end; align-self: end; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Verwerking en afstemming van betalingen">
+    <div class="grid">
+      <section class="col col-mat" aria-labelledby="lbl-mat">
+        <span class="label" id="lbl-mat">Matching</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/></svg></span>Automatische verwerking</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 1 1 4 0v8"/><path d="M9 11l-2 1a2 2 0 0 0-1 2v2c0 3 2 5 5 5h2a5 5 0 0 0 5-5v-3a2 2 0 1 0-4 0v-1a2 2 0 1 0-4 0"/></svg></span>Handmatige verwerking</button>
+          </div>
+        </div>
+      </section>
+      <section class="col col-bet" aria-labelledby="lbl-bet">
+        <span class="label" id="lbl-bet" style="align-self:center;">Betaalmethodes</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></span><div><h3>Automatische incasso</h3><p>Automatische incasso via SEPA</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h13l-3-3M21 16H8l3 3"/></svg></span><div><h3>Bankoverschrijving</h3><p>Verwerking van inkomende bankbetalingen</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 11h18"/><path d="M7 16h4"/></svg></span><div><h3>Creditcard (PSP)</h3><p>Integratie met PSP's voor online betalingen</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 10l5 5-5 5"/><path d="M5 5h6a5 5 0 0 1 5 5v5"/></svg></span><div><h3>Externe partij</h3><p>Koppelingen met externe betaalpartners</p></div></button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
