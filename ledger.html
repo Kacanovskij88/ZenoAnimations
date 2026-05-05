@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dagboeken en grootboekadministratie</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .col-pkg { grid-column: 1 / -1; grid-row: 1; align-items: center; }
+  .col-zeno { grid-column: 2; grid-row: 2; align-items: flex-end; align-self: end; }
+
+  .pkg-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pkg-row .minicard {
+    flex: 0 0 auto;
+    min-width: 170px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .pkg-row .minicard.full {
+    /* "Overige systemen" sits offset on its own row in the reference */
+    margin-left: 60px;
+  }
+  .pkg-wrap-2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Dagboeken en grootboekadministratie">
+    <div class="grid">
+
+      <!-- BOEKHOUDPAKETTEN -->
+      <section class="col col-pkg" aria-labelledby="lbl-pkg">
+        <span class="label" id="lbl-pkg">Boekhoudpaketten</span>
+        <div class="pkg-row">
+          <button class="card minicard" type="button">
+            <div class="top">Exact</div>
+            <div class="sub">Integratie met Exact</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">AFAS</div>
+            <div class="sub">Integratie met AFAS</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">Odoo</div>
+            <div class="sub">Integratie met Odoo</div>
+          </button>
+        </div>
+        <div class="pkg-wrap-2">
+          <button class="card minicard" type="button" style="text-align:left; align-items:flex-start; min-width: 320px;">
+            <div class="top">Overige systemen</div>
+            <div class="sub">Integratie met diverse financiële systemen</div>
+          </button>
+        </div>
+      </section>
+
+      <!-- ZENO FINANCE -->
+      <section class="col col-zeno" aria-labelledby="lbl-zeno">
+        <span class="label" id="lbl-zeno" style="align-self:flex-end;">Zeno finance</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- gear -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1A2 2 0 1 1 4.3 17l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1A2 2 0 1 1 7 4.3l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1A2 2 0 1 1 19.7 7l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+              </span>
+              <div>
+                <h3>Kern financieel systeem</h3>
+                <p>Centraal beheer van financiële administratie</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- pie / donut -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l8 3"/><path d="M12 12 L20 9"/></svg>
+              </span>
+              <div>
+                <h3>Subadministratie</h3>
+                <p>Inzicht per subadministratie en kostenplaats</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
