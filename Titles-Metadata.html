@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beheer van titels en metadata</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  /* Top: FORMATS 3-up row.  Bottom-left: PUBLICATIES (blue).  Bottom-right: METADATA (white). */
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-rows: auto 1fr;
+  }
+  .top-row {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .col-pub  { grid-column: 1; grid-row: 2; align-items: flex-start; }
+  .col-meta { grid-column: 2; grid-row: 2; align-items: flex-end; align-self: end; }
+
+  /* Slightly tighter top row so it sits like the reference */
+  .top-row .three-row { max-width: 920px; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Beheer van titels en metadata">
+    <div class="grid">
+
+      <!-- FORMATS (top 3-up) -->
+      <section class="col top-row" aria-labelledby="lbl-fmt">
+        <span class="label" id="lbl-fmt">Formats</span>
+        <div class="three-row">
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="3" y="9" width="18" height="9" rx="2"/><rect x="7" y="14" width="10" height="6" rx="1.2"/></svg>
+              </span>
+              Digitaal
+            </div>
+            <div class="sub">Online en platformgerichte publicaties</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="3" y="9" width="18" height="9" rx="2"/><rect x="7" y="14" width="10" height="6" rx="1.2"/></svg>
+              </span>
+              Print
+            </div>
+            <div class="sub">Fysieke uitgaven en drukwerk</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <!-- molecule / hybrid dots -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M6.3 7.2 10.5 11M17.7 7.2 13.5 11M6.3 16.8 10.5 13M17.7 16.8 13.5 13"/></svg>
+              </span>
+              Hybride
+            </div>
+            <div class="sub">Gecombineerde print- en digitale vormen</div>
+          </button>
+        </div>
+      </section>
+
+      <!-- PUBLICATIES (blue group) -->
+      <section class="col col-pub" aria-labelledby="lbl-pub">
+        <span class="label" id="lbl-pub">Publicaties</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- open book -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h6a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h6z"/></svg>
+              </span>
+              Titels
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- stacked books / series -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/><path d="M8 6h2M8 12h2M8 18h2"/></svg>
+              </span>
+              Series
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- document -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
+              </span>
+              Uitgaven
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- duplicate squares -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="14" height="14" rx="1.5"/><path d="M7 7h8M7 10h6"/></svg>
+              </span>
+              Edities
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- METADATA (white card) -->
+      <section class="col col-meta" aria-labelledby="lbl-meta">
+        <span class="label" id="lbl-meta" style="align-self:flex-end;">Metadata</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- barcode -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5v14M8 5v14M11 5v14M14 5v14M17 5v14M20 5v14"/></svg>
+              </span>
+              <div>
+                <h3>ISBN</h3>
+                <p>Unieke identificatie voor boeken</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5v14M8 5v14M11 5v14M14 5v14M17 5v14M20 5v14"/></svg>
+              </span>
+              <div>
+                <h3>ISSN</h3>
+                <p>Identificatie voor periodieke uitgaven</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- link / chain -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 1 0-5.7-5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 1 0 5.7 5.7L12.5 17"/></svg>
+              </span>
+              <div>
+                <h3>DOI</h3>
+                <p>Persistente links naar digitale content</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- sliders / custom settings -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10M17 7h4"/><circle cx="15" cy="7" r="2"/><path d="M3 17h4M11 17h10"/><circle cx="9" cy="17" r="2"/></svg>
+              </span>
+              <div>
+                <h3>Aangepast</h3>
+                <p>Eigen velden en interne coderingen</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
