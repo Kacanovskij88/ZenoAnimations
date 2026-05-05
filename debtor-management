@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Debiteurenbeheer en correcties</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-rows: auto 1fr;
+  }
+  .col-her { grid-column: 2; grid-row: 1; align-items: flex-start; }
+  .col-cred { grid-column: 1; grid-row: 2; align-items: flex-start; align-self: end; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Debiteurenbeheer en correcties">
+    <div class="grid">
+
+      <!-- HERINNERINGSFLOW -->
+      <section class="col col-her" aria-labelledby="lbl-her">
+        <span class="label" id="lbl-her" style="align-self:center;">Herinneringsflow</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- 4-grid -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg>
+              </span>
+              <div>
+                <h3>Standaard</h3>
+                <p>Automatische herinneringen volgens vaste stappen</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- crossed tools -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l4 4-9 9H5v-4z"/><path d="M14 6l2-2a2 2 0 0 1 3 3l-2 2"/><path d="M3 21l3-3"/></svg>
+              </span>
+              <div>
+                <h3>Op maat</h3>
+                <p>Herinneringen op basis van eigen workflows</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREDITEREN (blue group) -->
+      <section class="col col-cred" aria-labelledby="lbl-cred">
+        <span class="label" id="lbl-cred">Crediteren</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- gauge / saldo -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3 14a9 9 0 1 1 18 0"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/></svg>
+              </span>
+              Creditsaldo
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- user with arrow back -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/><path d="M9 16l-2 2 2 2" stroke-width="2.2"/></svg>
+              </span>
+              Restitutie
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
