@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orders, facturering en omzetbeheer</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 0.9fr 1.3fr;
+    grid-template-rows: auto auto;
+    gap: 14px 22px;
+    padding: 28px 36px;
+  }
+  .col-rap   { grid-column: 1; grid-row: 1; align-items: flex-start; align-self: center; }
+  .col-acc   { grid-column: 2; grid-row: 1; align-items: center; }
+  .col-omz   { grid-column: 1 / -1; grid-row: 2; align-items: center; margin-top: 4px; }
+
+  .pill-card {
+    background: var(--panel);
+    border-radius: var(--r-pill);
+    padding: 11px 22px 11px 14px;
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    width: fit-content;
+  }
+  .pill-card.dark { background: #0f172a; color: #fff; }
+  .pill-card .ico-mini {
+    width: 20px; height: 20px;
+    display: grid; place-items: center;
+    flex: none;
+  }
+  .omz-row { display: flex; gap: 14px; justify-content: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Orders, facturering en omzetbeheer">
+    <div class="grid">
+
+      <!-- RAPPORTEN -->
+      <section class="col col-rap" aria-labelledby="lbl-rap">
+        <span class="label" id="lbl-rap">Rapporten</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20z"/><path d="M12 10v5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+              </span>
+              Misserslijst
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"/></svg>
+              </span>
+              Gewonnen<br/>opportunities
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              Tijdvergelijking
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="6" y="13" width="3" height="6"/><rect x="11" y="9" width="3" height="10"/><rect x="16" y="5" width="3" height="14"/></svg>
+              </span>
+              Performance
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAATSINGSACCORDERING -->
+      <section class="col col-acc" aria-labelledby="lbl-acc">
+        <span class="label" id="lbl-acc">Plaatsingsaccordering</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 1 1 4 0v8"/><path d="M9 11l-2 1a2 2 0 0 0-1 2v2c0 3 2 5 5 5h2a5 5 0 0 0 5-5v-3a2 2 0 1 0-4 0v-1a2 2 0 1 0-4 0"/></svg>
+              </span>
+              <div>
+                <h3>Handmatig</h3>
+                <p>Handmatige controle en goedkeuring per factuur</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="8" height="6" rx="1"/><rect x="13" y="6" width="8" height="6" rx="1"/><rect x="8" y="14" width="8" height="6" rx="1"/></svg>
+              </span>
+              <div>
+                <h3>Bulk</h3>
+                <p>Meerdere facturen in één keer accorderen</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/></svg>
+              </span>
+              <div>
+                <h3>Automatisch</h3>
+                <p>Facturen automatisch goedgekeurd op basis van regels</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- OMZETBEHEER -->
+      <section class="col col-omz" aria-labelledby="lbl-omz">
+        <span class="label" id="lbl-omz">Omzetbeheer</span>
+        <div class="omz-row">
+          <button class="card pill-card" type="button">
+            <span class="ico-mini" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </span>
+            Historisch
+          </button>
+          <button class="card pill-card dark" type="button">
+            <span class="ico-mini" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+            </span>
+            Te factureren
+          </button>
+          <button class="card pill-card" type="button">
+            <span class="ico-mini" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/></svg>
+            </span>
+            Verwacht
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
