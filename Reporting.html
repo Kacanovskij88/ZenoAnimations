@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rapportage</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .col-exp { grid-column: 2; align-items: flex-end; align-self: center; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Rapportage">
+    <div class="grid">
+      <section class="col col-exp" aria-labelledby="lbl-exp">
+        <span class="label" id="lbl-exp" style="align-self:flex-end;">Exports</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 3 8l9 4 9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 16l9 4 9-4"/></svg>
+              </span>
+              <div>
+                <h3>ONIX</h3>
+                <p>Standaard voor boekendistributie en metadata</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="19" r="1.8"/><circle cx="5" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/><path d="M12 7.5v2M12 14.5v2M7 12h2M15 12h2"/></svg>
+              </span>
+              <div>
+                <h3>API</h3>
+                <p>Realtime koppelingen met externe systemen</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 11h18"/><path d="M9 11v8M15 11v8"/></svg>
+              </span>
+              <div>
+                <h3>Excel</h3>
+                <p>Flexibele exports voor eigen analyses</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
