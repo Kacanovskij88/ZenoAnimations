@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uitgebreid contactbeheer</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: auto auto;
+    gap: 18px 22px;
+    padding: 28px 36px;
+  }
+  .col-rol { grid-column: 1; grid-row: 1; align-items: flex-start; gap: 8px; }
+  .col-rel { grid-column: 2; grid-row: 1 / span 2; align-items: flex-end; }
+  .col-avg { grid-column: 1; grid-row: 2; align-items: flex-start; align-self: end; }
+  .role-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel); border-radius: var(--r-pill);
+    padding: 9px 18px 9px 12px; box-shadow: var(--shadow-sm);
+    font-size: 16px; font-weight: 700; color: var(--ink); width: fit-content;
+  }
+  .role-pill.is-active { background: var(--blue); }
+  .role-pill .ico { width: 22px; height: 22px; background: var(--dark-tile); color:#fff; border-radius:6px; display:grid; place-items:center; flex:none; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Uitgebreid contactbeheer">
+    <div class="grid">
+      <section class="col col-rol" aria-labelledby="lbl-rol">
+        <span class="label" id="lbl-rol" style="margin-bottom:4px;">Rollenbeheer</span>
+        <button class="card role-pill" type="button"><span class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>Abonnee</button>
+        <button class="card role-pill is-active" type="button"><span class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16.5" cy="14.5" r="1.4" fill="currentColor"/></svg></span>Betaler</button>
+        <button class="card role-pill" type="button"><span class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 18V9a7 7 0 0 1 14 0v9"/><circle cx="12" cy="9" r="2"/></svg></span>Bureau</button>
+        <button class="card role-pill" type="button"><span class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/><circle cx="18" cy="6" r="1.5"/></svg></span>Beheerder</button>
+      </section>
+
+      <section class="col col-rel" aria-labelledby="lbl-rel">
+        <span class="label" id="lbl-rel" style="align-self:flex-end;">Relatietype</span>
+        <div class="card whitecard" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/></svg></span><div><h3>Particulieren</h3><p>Individuele klanten en abonnees</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.2"/><path d="M3 19c.7-3 3-5 6-5s5.3 2 6 5"/><path d="M14 16c.5-1.6 2-3 3.5-3s2.9 1.4 3.5 3"/></svg></span><div><h3>Organisatie</h3><p>Organisaties en zakelijke relaties</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="4" rx="1"/><rect x="3" y="17" width="6" height="4" rx="1"/><rect x="15" y="17" width="6" height="4" rx="1"/><path d="M12 7v4M6 17v-3h12v3M12 11v3"/></svg></span><div><h3>Afdelingen</h3><p>Structuur binnen organisaties</p></div></button>
+            <button class="wrow" type="button"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/><path d="M16 14a3 3 0 0 0 0-6"/></svg></span><div><h3>Contactpersonen</h3><p>Contactpersonen per organisatie</p></div></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="col col-avg" aria-labelledby="lbl-avg">
+        <span class="label" id="lbl-avg">AVG</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Data-inzagerapporten</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/><path d="M8 9h8"/></svg></span>Anonimisering</button>
+            <button class="brow" type="button"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="14" rx="1.5"/><path d="M3 6h18"/><path d="M9 3h6v3"/><path d="M10 11v6M14 11v6"/></svg></span>Verwijderworkflows</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
