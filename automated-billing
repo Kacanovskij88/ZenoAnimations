@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geautomatiseerde facturering en betalingsverwerking</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .grid {
+    grid-template-columns: 0.7fr 1fr 1.1fr;
+    grid-template-rows: auto auto;
+    gap: 14px 22px;
+    padding: 28px 36px 28px;
+    align-items: start;
+  }
+  .col-fact { grid-column: 1 / -1; grid-row: 1; align-items: center; }
+  .col-life { grid-column: 1; grid-row: 2; align-items: flex-start; align-self: center; gap: 8px; }
+  .col-term { grid-column: 2; grid-row: 2; align-items: center; align-self: center; }
+  .col-bet  { grid-column: 3; grid-row: 2; align-items: flex-start; align-self: center; }
+
+  .col-fact .three-row { max-width: 760px; }
+  .col-fact .minicard { padding: 12px 16px; min-height: auto; }
+  .col-fact .minicard .top { font-size: 17px; }
+
+  .pill-card {
+    background: var(--panel);
+    border-radius: var(--r-pill);
+    padding: 10px 22px 10px 14px;
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    width: fit-content;
+  }
+  .pill-card.is-active { background: var(--blue); }
+  .pill-card .ico-mini {
+    width: 18px; height: 18px;
+    display: grid; place-items: center;
+    color: var(--ink);
+    flex: none;
+  }
+
+  .whitecard.compact { padding: 14px 22px; }
+  .whitecard.compact .wrow { padding: 11px 6px; gap: 14px; }
+  .whitecard.compact .wrow h3 { font-size: 16px; margin: 0; }
+  .whitecard.compact .wrow p { font-size: 13.5px; margin: 1px 0 0; }
+  .whitecard.compact .wrow .ico { width: 38px; height: 38px; }
+</style>
+</head>
+<body>
+  <main class="stage" aria-label="Geautomatiseerde facturering en betalingsverwerking">
+    <div class="grid">
+
+      <!-- FACTURERING -->
+      <section class="col col-fact" aria-labelledby="lbl-fact">
+        <span class="label" id="lbl-fact">Facturering</span>
+        <div class="three-row">
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 11l7 3 3 7z"/><path d="M21 3 11 14"/></svg>
+              </span>
+              Peppol
+            </div>
+            <div class="sub">Digitale facturatie via het Peppol-netwerk</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="3" y="9" width="18" height="9" rx="2"/><rect x="7" y="14" width="10" height="6" rx="1.2"/></svg>
+              </span>
+              Print
+            </div>
+            <div class="sub">Bundel print en digitaal</div>
+          </button>
+          <button class="card minicard" type="button">
+            <div class="top">
+              <span class="ico-amber" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </span>
+              E-mail
+            </div>
+            <div class="sub">Bundel print en digitaal</div>
+          </button>
+        </div>
+      </section>
+
+      <!-- LIFECYCLE -->
+      <section class="col col-life" aria-labelledby="lbl-life">
+        <span class="label" id="lbl-life">Lifecycle</span>
+        <button class="card pill-card" type="button">
+          <span class="ico-mini" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </span>
+          Upgraden
+        </button>
+        <button class="card pill-card is-active" type="button">
+          <span class="ico-mini" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6 6 4-4 8 8"/><path d="M14 17h7v-7"/></svg>
+          </span>
+          Downgraden
+        </button>
+        <button class="card pill-card" type="button">
+          <span class="ico-mini" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>
+          </span>
+          Opzeggen
+        </button>
+      </section>
+
+      <!-- FACTURATIETERMIJN -->
+      <section class="col col-term" aria-labelledby="lbl-term">
+        <span class="label" id="lbl-term">Facturatietermijn</span>
+        <div class="card bluecard" role="group">
+          <div class="bluecard-list">
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/></svg>
+              </span>
+              Maandelijks
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9v9z"/><path d="M21 12h-9V3a9 9 0 0 1 9 9z" fill="currentColor"/></svg>
+              </span>
+              Per kwartaal
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M4 14h16"/></svg>
+              </span>
+              Jaarlijks
+            </button>
+            <button class="brow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="14" height="13" rx="1.5"/><rect x="7" y="4" width="14" height="13" rx="1.5"/></svg>
+              </span>
+              Meerjarig
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BETALINGEN -->
+      <section class="col col-bet" aria-labelledby="lbl-bet">
+        <span class="label" id="lbl-bet" style="align-self:flex-end;">Betalingen</span>
+        <div class="card whitecard compact" role="group" style="width:100%;">
+          <div class="whitecard-list">
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.5-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.5 5.7L4 16"/><path d="M4 20v-4h4"/></svg>
+              </span>
+              <div>
+                <h3>Automatische incasso</h3>
+                <p>Automatisch afschrijving via SEPA-incasso</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
+              </span>
+              <div>
+                <h3>Factuur</h3>
+                <p>Betaling op basis van verzonden factuur</p>
+              </div>
+            </button>
+            <button class="wrow" type="button">
+              <span class="ico" aria-hidden="true">
+                <!-- credit card / wallet -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="17" cy="15" r="1.4" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>Externe partij (PSP)</h3>
+                <p>Online betalingen via iDEAL en creditcard</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
